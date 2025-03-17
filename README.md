@@ -23,3 +23,19 @@ The project aims to predict diabetes status (no diabetes, pre-diabetes, or diabe
 
 5.  **Model Evaluation:** Defines a function `evaluate_pipeline` to assess model performance on the test set, printing a classification report and ROC AUC score. The best performing tuned scikit learn model (Logistic Regression) is selected and evaluated. A confusion matrix is also created for the PyTorch MLP.
 
+## Main Results
+
+1. The best-performing model, after hyperparameter tuning, was Logistic Regression with penalty='l2', C=1, and selecting all features (k='all'). The parameters were optimized using RandomizedSearchCV, searching for the best k value for SelectKBest and penalty and C for LogisticRegression.
+2. The consistently high feature importance scores for general health, blood pressure, BMI, difficulty walking, and cholesterol align with known risk factors for diabetes.
+3. A multi-layer perceptron (MLP) was implemented, trained, and assessed. This model achieved slightly less performance:
+   *  High precision (0.95) for class '0', but only moderate recall (0.62).
+   *  Very low precision (0.02) and recall (0.25) for class '1'
+   *  Moderate precision (0.32) and recall (0.59) for class '2'
+   *  Overall accuracy was 0.61
+   *  Macro average recall of 0.49
+   *  ROC_AUC of 0.72
+4. Model Tuning
+   *  Logistic Regression: Best parameters: {'feature_selection__k': 'all', 'classifier__penalty': 'l2', 'classifier__C': 1}
+   *  Random Forrest: Best parameters: {'feature_selection__k': 7, 'classifier__n_estimators': 50, 'classifier__min_samples_split': 2, 'classifier__max_depth': 5}
+   *  XGBoost: Best parameters: {'feature_selection__k': 7, 'classifier__scale_pos_weight': 1, 'classifier__n_estimators': 50, 'classifier__max_depth': 4, 'classifier__learning_rate': 0.2}
+
