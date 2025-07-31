@@ -11,7 +11,7 @@ This project uses the BRFSS 2015 dataset to build and evaluate various machine l
 
 ## Project Overview
 
-The goal of this project is to apply machine learning techniques to a real-world health dataset to classify individuals into three categories: non-diabetic, pre-diabetic, and diabetic. The project explores the challenges of working with imbalanced data and compares the performance of classical machine learning models against a deep learning approach.
+The goal of this project is to apply machine learning techniques to a real world health dataset to classify individuals into three categories: non-diabetic, pre-diabetic, and diabetic. The project explores the challenges of working with imbalanced data and compares the performance of classical machine learning models against a deep learning approach.
 
 ## Dataset
 
@@ -37,12 +37,12 @@ The project follows a standard machine learning workflow:
         - Logistic Regression
         - Random Forest
         - XGBoost
-        - A custom Multi-Layer Perceptron (MLP) using PyTorch
+        - A custom Multi Layer Perceptron (MLP) using PyTorch
 4.  **Hyperparameter Tuning**: `RandomizedSearchCV` was used with 5-fold stratified cross-validation to find the best parameters for each model, optimizing for **macro average recall** to handle the class imbalance.
 
 ## Results
 
-The models were evaluated on the held-out test set. The Random Forest model performed best in terms of overall accuracy, while Logistic Regression showed the best-balanced recall across classes.
+The models were evaluated on the held out test set. The Random Forest model performed best in terms of overall accuracy, while Logistic Regression showed the best balanced recall across classes.
 
 | Model | Accuracy | ROC AUC | F1-Score (Weighted) | F1-Score (Macro) | Prediabetes Recall |
 | :--- | :---: | :---: | :---: | :---: | :---: |
