@@ -17,28 +17,28 @@ The goal of this project is to apply machine learning techniques to a real-world
 
 The data comes from the **Behavioral Risk Factor Surveillance System (BRFSS) 2015** survey.
 
-- [cite_start]**Size**: 253,680 records and 22 columns.
-- [cite_start]**Features**: Key features include `GenHlth`, `HighBP`, `BMI`, `Age`, and `Income`[cite: 20].
+- **Size**: 253,680 records and 22 columns.
+- **Features**: Key features include `GenHlth`, `HighBP`, `BMI`, `Age`, and `Income`.
 - **Target Variable**: `Diabetes_012`, with three classes:
-    - [cite_start]`0.0`: No Diabetes (213,703 samples) 
-    - [cite_start]`1.0`: Prediabetes (4,631 samples) 
-    - [cite_start]`2.0`: Diabetes (35,346 samples) 
+    - `0.0`: No Diabetes (213,703 samples)
+    - `1.0`: Prediabetes (4,631 samples)
+    - `2.0`: Diabetes (35,346 samples)
 - **Challenge**: The dataset is highly imbalanced, with the "Prediabetes" class being a severe minority.
 
 ## Methodology
 
 The project follows a standard machine learning workflow:
 
-1.  **Data Preprocessing**: The data was cleaned and split into training (64%), validation (16%), and test (20%) sets. [cite_start]Stratified splitting was used to maintain class proportions[cite: 24].
-2.  [cite_start]**Exploratory Data Analysis (EDA)**: Visualizations and statistical tests were used to identify key predictive features and understand their relationship with the target variable[cite: 25, 27, 30]. [cite_start]`GenHlth`, `HighBP`, and `BMI` were found to be highly correlated with diabetes status.
+1.  **Data Preprocessing**: The data was cleaned and split into training (64%), validation (16%), and test (20%) sets. Stratified splitting was used to maintain class proportions.
+2.  **Exploratory Data Analysis (EDA)**: Visualizations and statistical tests were used to identify key predictive features and understand their relationship with the target variable. `GenHlth`, `HighBP`, and `BMI` were found to be highly correlated with diabetes status.
 3.  **Modeling**:
-    - [cite_start]**Pipelines**: Scikit-learn pipelines were constructed to chain preprocessing (`MinMaxScaler`), feature selection (`SelectKBest`), and oversampling (`SMOTE`) steps with the classifier[cite: 34, 35].
+    - **Pipelines**: Scikit-learn pipelines were constructed to chain preprocessing (`MinMaxScaler`), feature selection (`SelectKBest`), and oversampling (`SMOTE`) steps with the classifier.
     - **Models Evaluated**:
-        - [cite_start]Logistic Regression [cite: 35]
-        - [cite_start]Random Forest [cite: 35]
-        - [cite_start]XGBoost [cite: 35]
-        - [cite_start]A custom Multi-Layer Perceptron (MLP) using PyTorch [cite: 41]
-4.  [cite_start]**Hyperparameter Tuning**: `RandomizedSearchCV` was used with 5-fold stratified cross-validation to find the best parameters for each model, optimizing for **macro average recall** to handle the class imbalance[cite: 35, 37].
+        - Logistic Regression
+        - Random Forest
+        - XGBoost
+        - A custom Multi-Layer Perceptron (MLP) using PyTorch
+4.  **Hyperparameter Tuning**: `RandomizedSearchCV` was used with 5-fold stratified cross-validation to find the best parameters for each model, optimizing for **macro average recall** to handle the class imbalance.
 
 ## Results
 
@@ -69,7 +69,4 @@ The models were evaluated on the held-out test set. The Random Forest model perf
     pip install -r requirements.txt
     ```
 4.  **Run the script**:
-    Execute the Python script in an interactive environment like VS Code or a Jupyter Notebook to see the outputs and visualizations.
-    ```bash
-    # Run predict.py in your preferred IDE
-    ```
+    Execute the Python script (`predict.py`) in an interactive environment like VS Code or a Jupyter Notebook to see the outputs and visualizations.
